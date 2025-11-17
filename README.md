@@ -338,42 +338,6 @@ Xem **PROJECT_DOCUMENTATION.md** để biết:
 
 ---
 
-## 🔄 Next Steps
-
-### Production Deployment:
-1. Replace synthetic data with actual loan data
-2. Connect to VPBank data warehouse
-3. Set up daily automation (cron/Task Scheduler)
-4. Configure email alerts for breaches
-5. Deploy dashboard to internal server
-
-### Phase 2 Enhancements:
-- [ ] Machine learning NPL prediction
-- [ ] Real-time alerts (Email/Slack/Teams)
-- [ ] REST API for KRI queries
-- [ ] Mobile app integration
-- [ ] Advanced segmentation (RFM, behavioral)
-
----
-
-## 📞 Support
-
-**Documentation:** PROJECT_DOCUMENTATION.md  
-**Technical Issues:** Check troubleshooting section in docs  
-**Questions:** See Appendix B (Glossary) in documentation
-
----
-
-## 📄 License & Credits
-
-**Created for:** VPBank Credit Risk Team  
-**Framework:** COSO Enterprise Risk Management  
-**Regulations:** Circular 02/2013/TT-NHNN (Vietnam)  
-**Technology:** Python, Pandas, Plotly, Excel  
-**Date:** November 15, 2025
-
----
-
 ## ⚡ Quick Commands
 
 ```bash
@@ -392,22 +356,6 @@ cat PROJECT_DOCUMENTATION.md
 # Open dashboard in browser
 open kri_dashboard.html
 ```
-
----
-
-## 🎉 Project Complete!
-
-Hệ thống KRI Dashboard đã được tạo thành công với:
-
-✅ 10,000 synthetic loans  
-✅ 15+ KRI metrics  
-✅ Interactive HTML dashboard  
-✅ Comprehensive Excel report  
-✅ Power BI/Tableau ready data  
-✅ Full COSO ERM alignment  
-✅ 60+ pages documentation  
-
-**Mở `kri_dashboard.html` để bắt đầu explore!**
 
 ---
 
