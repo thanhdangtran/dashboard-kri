@@ -1,38 +1,30 @@
-# VPBank Credit Risk KRI Dashboard
+# Credit Risk KRI Dashboard
 
-## 📊 Tổng quan dự án
+## Tổng quan dự án
 
-Hệ thống dashboard KRI (Key Risk Indicators) toàn diện cho quản lý rủi ro tín dụng, được thiết kế đặc biệt cho VPBank với các đặc điểm thị trường Việt Nam.
+Hệ thống dashboard KRI (Key Risk Indicators) toàn diện cho quản lý rủi ro tín dụng, được thiết kế đặc biệt cho các đặc điểm thị trường Việt Nam.
 
-**Ngày tạo:** 15/11/2025  
-**Framework:** COSO Enterprise Risk Management (ERM)  
-**Công nghệ:** Python, Pandas, Plotly, Excel
-
----
-
-## 🎯 Kết quả đạt được
-
-### ✅ Dữ liệu Synthetic
+### Dữ liệu Synthetic
 - **10,000 khoản vay** với đặc điểm thị trường Việt Nam
 - **12 tháng dữ liệu lịch sử** (101,539 records)
 - Phân bố theo tỉnh/thành, ngành nghề, sản phẩm, phân khúc khách hàng
 - Hiệu ứng mùa Tết, đặc điểm rủi ro địa phương
 
-### 📈 KRI Metrics (15+ chỉ số)
+### KRI Metrics (15+ chỉ số)
 - **NPL Ratio:** 0.77% (Risk Appetite: < 3.0%) ✅ PASS
 - **PAR30:** 2.23% (Risk Appetite: < 5.0%) ✅ PASS  
 - **PAR90:** 0.77% (Risk Appetite: < 3.5%) ✅ PASS
 - **Industry Concentration:** 23.43% (Limit: < 25%) ✅ PASS
 - **Province Concentration:** 29.94% (Limit: < 40%) ✅ PASS
 
-### 📊 Dashboard & Reports
+### Dashboard & Reports
 - **Interactive HTML Dashboard** - Real-time visualization
 - **Excel Report** - 15 worksheets với charts & formatting
 - **Power BI/Tableau Ready** - Time series data prepared
 
 ---
 
-## 📁 Files được tạo ra
+## Files được tạo ra
 
 ### 1. Dữ liệu
 ```
@@ -62,7 +54,7 @@ README.md                      - File này
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Bước 1: Xem Dashboard
 ```bash
@@ -90,7 +82,7 @@ python create_excel_report.py
 
 ---
 
-## 📊 Dashboard Components
+## Dashboard Components
 
 ### 1. Executive Summary (KPI Cards)
 - NPL Ratio với gauge chart
@@ -122,7 +114,7 @@ python create_excel_report.py
 
 ---
 
-## 📈 Excel Report Structure
+## Excel Report Structure
 
 ### Worksheets:
 1. **Executive Summary** - KRI overview với traffic light
@@ -141,42 +133,7 @@ python create_excel_report.py
 14. **Raw Data (Sample)** - Loan-level data
 15. **Instructions** - User guide & COSO alignment
 
----
-
-## 🔧 Customization
-
-### Thay đổi Risk Appetite
-Edit `kri_calculator.py`:
-```python
-self.risk_appetite = {
-    'npl_ratio_max': 3.0,      # NPL limit
-    'par30_ratio_max': 5.0,    # PAR30 limit
-    'par90_ratio_max': 3.5,    # PAR90 limit
-    ...
-}
-```
-
-### Thêm KRI mới
-Add to `CreditRiskKRI` class:
-```python
-def calculate_new_kri(self):
-    # Your calculation here
-    return metrics
-```
-
-### Thay đổi data distribution
-Edit `loan_portfolio_generator.py`:
-```python
-self.provinces = {
-    'TP. Hồ Chí Minh': 0.30,  # Adjust weights
-    'Hà Nội': 0.25,
-    ...
-}
-```
-
----
-
-## 📊 Power BI / Tableau Integration
+## Power BI / Tableau Integration
 
 ### Import Data:
 1. Open `kri_report.xlsx`
@@ -190,22 +147,10 @@ self.provinces = {
 - **Heatmap:** NPL by segment × product
 - **Map:** Geographic distribution (Vietnam)
 - **Waterfall:** Migration matrix
-
-### Sample DAX:
-```dax
-NPL_Ratio = 
-DIVIDE(
-    CALCULATE(
-        SUM('Portfolio'[outstanding_balance_vnd_mil]),
-        'Portfolio'[loan_classification] IN {"Nhóm 4 - Nghi ngờ", "Nhóm 5 - Tổn thất"}
-    ),
-    SUM('Portfolio'[outstanding_balance_vnd_mil])
-)
-```
-
+- 
 ---
 
-## 🏛️ COSO ERM Framework Alignment
+## COSO ERM Framework Alignment
 
 ### Performance Component
 - ✅ Risk appetite clearly defined
@@ -233,7 +178,7 @@ DIVIDE(
 
 ---
 
-## 📋 KRI Metrics Reference
+## KRI Metrics Reference
 
 | KRI | Formula | Threshold | Current |
 |-----|---------|-----------|---------|
@@ -245,7 +190,7 @@ DIVIDE(
 
 ---
 
-## 🔍 Loan Classification System
+## Loan Classification System
 
 Theo Circular 02/2013/TT-NHNN:
 
@@ -258,105 +203,3 @@ Theo Circular 02/2013/TT-NHNN:
 | Nhóm 5 - Tổn thất | 180+ | **Yes** | Loss |
 
 **NPL = Nhóm 4 + Nhóm 5**
-
----
-
-## 💡 Use Cases
-
-### 1. Daily Risk Monitoring
-- Check NPL ratio vs risk appetite
-- Monitor early warning indicators
-- Identify concentration risks
-
-### 2. Management Reporting
-- Export Excel report for monthly meeting
-- Show trend charts to executive team
-- Highlight breaches and actions
-
-### 3. Strategy Planning
-- Analyze vintage performance
-- Identify weak cohorts
-- Adjust underwriting criteria
-
-### 4. Regulatory Reporting
-- NPL ratio for SBV reporting
-- Concentration limits compliance
-- Provisioning requirements
-
----
-
-## 🛠️ System Requirements
-
-**Python Environment:**
-- Python 3.8+
-- pandas >= 1.3.0
-- numpy >= 1.21.0
-- plotly >= 5.0.0
-- xlsxwriter >= 3.0.0
-
-**Installation:**
-```bash
-pip install pandas numpy plotly xlsxwriter openpyxl
-```
-
-**Browser:**
-- Chrome, Firefox, Safari (for HTML dashboard)
-
-**Excel:**
-- Microsoft Excel 2016+ or Google Sheets
-
----
-
-## 📖 Documentation
-
-Xem **PROJECT_DOCUMENTATION.md** để biết:
-- Kiến trúc hệ thống chi tiết
-- Công thức tính toán KRI
-- COSO ERM alignment details
-- Power BI/Tableau integration guide
-- Customization guide
-- Troubleshooting
-- 60+ pages tài liệu đầy đủ
-
----
-
-## 🎓 Key Learnings
-
-### Technical
-- Synthetic data generation với Vietnamese market characteristics
-- KRI calculation engine với risk appetite framework
-- Interactive dashboard với Plotly
-- Excel automation với xlsxwriter
-- Time series analysis
-
-### Business
-- Credit risk metrics (NPL, PAR, migration)
-- Vietnamese banking regulations (Circular 02/2013)
-- COSO ERM framework application
-- Risk appetite setting
-- Concentration risk management
-
----
-
-## ⚡ Quick Commands
-
-```bash
-# View all files
-ls -lh
-
-# Regenerate dashboard
-python create_dashboard.py
-
-# Regenerate Excel
-python create_excel_report.py
-
-# View documentation
-cat PROJECT_DOCUMENTATION.md
-
-# Open dashboard in browser
-open kri_dashboard.html
-```
-
----
-
-*End of README*
